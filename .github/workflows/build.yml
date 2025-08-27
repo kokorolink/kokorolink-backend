@@ -1,0 +1,9 @@
+name: Build & Push
+on:
+  push: { branches: [ main ] }
+  pull_request:
+jobs:
+  docker:
+    uses: kokorolink/kokorolink-infra/.github/workflows/reusable-docker-build.yml@main
+    with:
+      image_name: ${{ github.event.repository.name }}
